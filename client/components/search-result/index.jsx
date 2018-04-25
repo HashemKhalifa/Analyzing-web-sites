@@ -6,7 +6,7 @@ const SearchResult = (props) => {
   return (
     <div className="search_result">
       <ul>
-        <li><span>Html Version: </span>{props.htmlVersion}</li>
+        <li><span>HTML Version: </span>{props.htmlVersion}</li>
         <li><span>Title:</span> {props.meta.title}</li>
         <li><span>Description:</span> {props.meta.description}</li>
         <li><span>Website URL:</span> {props.url}</li>

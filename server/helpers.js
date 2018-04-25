@@ -1,4 +1,4 @@
-import cheerio from "cheerio";
+import cheerio from 'cheerio';
 import URL from 'url';
 
 /**
@@ -6,33 +6,33 @@ import URL from 'url';
  * @param url
  * @returns {string}
  */
-const getDomainName = (url) => {
-    return URL.parse(url).hostname;
-};
+const getDomainName = url => URL.parse(url).hostname;
 
 const getUrlPatterns = (url) => {
-    let { hostname, href, pathname, protocol} = URL.parse(url);
-    let patterns = [];
-    if (hostname.startsWith('www')) {
-        let withoutW = hostname.slice(4);
-        patterns = [url,  hostname, href, withoutW, `http://${withoutW}${pathname}`, `https://${withoutW}${pathname}`];
-        if (protocol === 'http:') {
-            patterns.push(`https://www.${withoutW}`);
-            patterns.push(`https://${withoutW}`);
-        } else {
-            patterns.push(`http://${withoutW}`);
-        }
+  const {
+    hostname, href, pathname, protocol,
+  } = URL.parse(url);
+  let patterns = [];
+  if (hostname.startsWith('www')) {
+    const withoutW = hostname.slice(4);
+    patterns = [url, hostname, href, withoutW, `http://${withoutW}${pathname}`, `https://${withoutW}${pathname}`];
+    if (protocol === 'http:') {
+      patterns.push(`https://www.${withoutW}`);
+      patterns.push(`https://${withoutW}`);
     } else {
-        patterns = [url,  hostname, href, `http://www.${hostname}${pathname}`, `https://www.${hostname}${pathname}`];
-        if (protocol === 'http:') {
-            patterns.push(`https://www.${hostname}`);
-            patterns.push(`https://${hostname}`);
-        } else {
-            patterns.push(`http://www.${hostname}`);
-        }
+      patterns.push(`http://${withoutW}`);
     }
-    return patterns;
-}
+  } else {
+    patterns = [url, hostname, href, `http://www.${hostname}${pathname}`, `https://www.${hostname}${pathname}`];
+    if (protocol === 'http:') {
+      patterns.push(`https://www.${hostname}`);
+      patterns.push(`https://${hostname}`);
+    } else {
+      patterns.push(`http://www.${hostname}`);
+    }
+  }
+  return patterns;
+};
 
 /**
  *
@@ -40,8 +40,8 @@ const getUrlPatterns = (url) => {
  * @returns {*}
  */
 const cleanStr = (str) => {
-    if (!str) return '';
-    return str.replace(/(\r\n|\t\n|\t|\n|\r)/gm, '')
+  if (!str) return '';
+  return str.replace(/(\r\n|\t\n|\t|\n|\r)/gm, '');
 };
 /**
  *
@@ -50,14 +50,14 @@ const cleanStr = (str) => {
  * @returns {Array}
  */
 const getHeading = (html, heading) => {
-    let h = [];
-    const $ = cheerio.load(html);
+  const h = [];
+  const $ = cheerio.load(html);
 
-    $(html)
-        .find(heading)
-        .each((i, elem) => {
-            h[i] = cleanStr($(elem).text());
-        });
-    return h;
+  $(html)
+    .find(heading)
+    .each((i, elem) => {
+      h[i] = cleanStr($(elem).text());
+    });
+  return h;
 };
- export {getDomainName, getHeading , getUrlPatterns, cleanStr}
+export { getDomainName, getHeading, getUrlPatterns, cleanStr };

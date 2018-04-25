@@ -26,7 +26,7 @@ app.use(bodyParser.json({
 
 
 // api router
-app.get('/api/test', async (req, res) => {
+app.get('/api', async (req, res) => {
   const url = req.param('url');
 
   const rs = await getWebContent(url);

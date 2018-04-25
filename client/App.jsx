@@ -1,11 +1,7 @@
-import React, { Component } from "react";
-import { hot } from "react-hot-loader";
-import SearchBox from "./components/search-box";
+import React from 'react';
+import { hot } from 'react-hot-loader';
+import SearchBox from './components/search-box';
 
-class App extends Component {
-  render() {
-    return <SearchBox />;
-  }
-}
+const App = () => <SearchBox />;
 
 export default hot(module)(App);
