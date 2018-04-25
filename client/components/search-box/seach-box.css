@@ -1,0 +1,107 @@
+/**
+* todo
+move reset to global file.
+ */
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+textarea, input, button { border: none;}
+:focus{outline: none;}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+body {
+    background-color: #f7f7f7;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/**
+     style search box
+ */
+.search_container{
+    position: relative;
+    background: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    max-width: 800px;
+    margin: 20px auto 0 auto;
+    box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
+}
+
+.search_input{
+    border-bottom: 1px solid #efefef;
+    color: #4e4e4f;
+    font-size: 0.8rem;
+    height: 40px;
+    width: 100%;
+    background-size: 15px;
+    margin-bottom: 0.8rem;
+}
+.search_icon{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: #4e4e4f;
+}
+.center{
+    padding: 1rem;
+    text-align: center;
+}
+
+.error{
+    color: #D0021B;
+}
